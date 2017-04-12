@@ -22,7 +22,7 @@ TAG_RESPONSE_FILE="$(mktemp)"
 
 errlog "Creating tag $TAG_NAME..."
 curl \
-  --silent --fail \
+  --silent \
   -H "Authorization: token $GITHUB_TOKEN" \
   -H "Content-Type: application/json" \
   -o "$TAG_RESPONSE_FILE" \
@@ -49,7 +49,7 @@ REF_RESPONSE_FILE="$(mktemp)"
 
 errlog "Creating ref to tag $TAG_SHA..."
 curl \
-  --silent --fail \
+  --silent \
   -H "Authorization: token $GITHUB_TOKEN" \
   -H "Content-Type: application/json" \
   -o "$REF_RESPONSE_FILE" \
