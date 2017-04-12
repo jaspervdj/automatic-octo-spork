@@ -5,4 +5,4 @@ addons:
     packages:
       - 'jq'
 script:
-  - echo 'ok'
+  - echo 'well...'
