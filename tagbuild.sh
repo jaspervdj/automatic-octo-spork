@@ -12,7 +12,7 @@ fi
 
 TAG_NAME="r$RANDOM"
 TAG_MESSAGE="hi there"
-TAG_DATE="$(date --iso-8601=seconds)"
+TAG_DATE="$(date -u '+%FT%T+00:00')"
 
 function errlog() {
   echo "$@" >&2
