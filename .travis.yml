@@ -1,8 +1,11 @@
 language: c
 sudo: false
+env:
+  global:
+    secure: nJ226RV+HvsgRH4HmoN/QGSJB4HZy1gZQ+OsJMpcWw8dMB32msEw2CEgDXVa/PKQ6fCX+fXpndd4HAgRJZve2Ka9eNBKYL9lWyJy0XqXxu3wieQqOMUyfJAC5T8t8g7GFqSuRejZv3U7XUem3qNUMqzSTJEwojufJAf3ZyLB/rnD7akh05FhbrxcA9MAPcChn2vTKljPdqJxS+OT16PTweIdbU1nEP6Js2PpuhrfLml6DKxZ8nt8qhAZQqTwuf9fJ/gh1LCmf65+ip1k11+ScwwN/PHeFtbBLnVnlIqoaBjckrJL062xal+Afk3X+Cxn9JETQUPZly3YUWpGfUFD/0iVzZUoM+OWjG6klpIuU5E60GTAAGzw3q0MM03hKUWO/OSAY5BMntHCY+gN8rKTiGbRepcscGUhfSQwuAhOlWRss1oe5j/xdlRwr4O7DLzyizdTf6Dso0XkIElpz+KLQuRG7IGbU30AohfGIHl6Z0mcmpF9bsuoO0nk6m4b7yNBB34+QUqIG2pAkbnhF/G+VxGJVEt4l4a8j/qlWSoCzqnzKH+avtfgOSUBJjTXZvw8/DvZvvDH+4DjS4WUyr91K9s9fQC3VwbUqqaktCbG1pPP3nsuYf0IeA/faUbTOvj8GsdhRc+4An+WFGUQc0v0UsAU85DWqPLahzKjY55UqJM=
 addons:
   apt:
     packages:
-      - 'jq'
+    - jq
 script:
-  - echo 'well...'
+- bash tagbuild.sh
