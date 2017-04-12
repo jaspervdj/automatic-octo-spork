@@ -11,12 +11,13 @@ if [[ "$TRAVIS" == "true" ]]; then
   GITHUB_SLUG="$TRAVIS_REPO_SLUG"
 fi
 
-if [[ "CI_BRANCH" =~ "^release/.*$" ]]; then
+echo $CI_BRANCH
+if [[ "$CI_BRANCH" =~ ^release/.*$ ]]; then
   RELEASE="$(echo "$CI_BRANCH" | sed 's/^release\///')"
   TAG_NAME="v$RELEASE-$CI_BUILD"
   TAG_MESSAGE="Releasing $TAG_NAME today yo"
 else
-  echo "This is not a release, branch, skipping..."
+  echo "This is not a release branch, skipping..."
   exit 0
 fi
 
