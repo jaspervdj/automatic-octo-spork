@@ -41,6 +41,7 @@ curl \
     }
 HERE
 
+cat "$TAG_RESPONSE_FILE"
 TAG_SHA="$(jq -r '.sha' <"$TAG_RESPONSE_FILE")"
 rm "$TAG_RESPONSE_FILE"
 
@@ -60,4 +61,5 @@ curl \
     }
 HERE
 
+cat "$REF_RESPONSE_FILE"
 rm "$REF_RESPONSE_FILE"
