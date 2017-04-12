@@ -6,12 +6,20 @@ true "$GITHUB_TOKEN"
 
 if [[ "$TRAVIS" == "true" ]]; then
   CI_BUILD="$TRAVIS_BUILD_NUMBER"
+  CI_BRANCH="$TRAVIS_BRANCH"
   TAG_COMMIT="$TRAVIS_COMMIT"
   GITHUB_SLUG="$TRAVIS_REPO_SLUG"
 fi
 
-TAG_NAME="r$RANDOM"
-TAG_MESSAGE="hi there"
+if [[ "CI_BRANCH" =~ "^release/.*$" ]]; then
+  RELEASE="$(echo "$CI_BRANCH" | sed 's/^release\///')"
+  TAG_NAME="v$RELEASE-$CI_BUILD"
+  TAG_MESSAGE="Releasing $TAG_NAME today yo"
+else
+  echo "This is not a release, branch, skipping..."
+  exit 0
+fi
+
 TAG_DATE="$(date -u '+%FT%T+00:00')"
 
 function errlog() {
